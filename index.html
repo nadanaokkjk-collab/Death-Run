@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Death Race - Jogo de corrida infinita 2D com visão de cima. Desvie de obstáculos e sobreviva o máximo que puder!">
+  <title>Death Race - Corrida Infinita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-item" id="score-box">
+        <span class="hud-label">PONTOS</span>
+        <span class="hud-value" id="score-value">0</span>
+      </div>
+      <div class="hud-item" id="speed-box">
+        <span class="hud-value" id="speed-value">0</span>
+        <span class="hud-label">km/h</span>
+      </div>
+      <div class="hud-item" id="coin-box">
+        <span class="hud-icon">🪙</span>
+        <span class="hud-value" id="coin-value">0</span>
+      </div>
+    </div>
+
+    <!-- Nitro HUD -->
+    <div id="nitro-hud" class="hidden">
+      <div id="nitro-charges"></div>
+      <div id="nitro-bar">
+        <div id="nitro-bar-fill"></div>
+      </div>
+      <span id="nitro-hint">SPACE / 2x TAP</span>
+    </div>
+
+    <!-- Menu Screen -->
+    <div id="menu-screen">
+      <div class="menu-content">
+        <div class="title-group">
+          <h1 id="game-title">🏎️ DEATH RACE</h1>
+          <p class="subtitle">Corrida Infinita</p>
+        </div>
+        <div class="record-display">
+          <span>🏆 Recorde:</span>
+          <span id="menu-high-score">0</span>
+        </div>
+        <button id="play-btn" class="game-btn primary">▶ JOGAR</button>
+        <div id="skin-selector">
+          <h3>Escolha seu Carro</h3>
+          <div id="skin-options"></div>
+        </div>
+        <div class="coins-display">
+          <span>🪙 Moedas:</span>
+          <span id="total-coins">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="hidden">
+      <div class="gameover-content">
+        <h2>💥 GAME OVER</h2>
+        <div id="new-record" class="hidden">🎉 NOVO RECORDE!</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">Pontos</span>
+            <span class="stat-value" id="final-score">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Recorde</span>
+            <span class="stat-value" id="final-high-score">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Moedas</span>
+            <span class="stat-value" id="final-coins">0</span>
+          </div>
+        </div>
+        <button id="restart-btn" class="game-btn primary">🔄 JOGAR NOVAMENTE</button>
+        <button id="menu-btn" class="game-btn secondary">🏠 MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sound.js"></script>
+  <script src="drawing.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
